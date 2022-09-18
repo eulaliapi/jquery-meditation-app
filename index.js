@@ -4,6 +4,7 @@ $(document).ready(function () {
     let beach = document.getElementById("beach");
     let paused = false;
     let initialBarWidth = $(".fake-width").width();
+    let initialTiming;
 
     //toggles minutes
     $(".minute").click(function () {
@@ -52,7 +53,7 @@ $(document).ready(function () {
 
     });
 
-    //pauses minutes and timer
+    //pauses app
     pauseApp = () => {
         $("img").attr("src", "./svg/play.svg");
         paused = true;
@@ -60,7 +61,7 @@ $(document).ready(function () {
         beach.pause();
     };
 
-    //plays minutes and timer
+    //plays app
     playApp = () => {
         $("img").attr("src", "./svg/pause.svg");
         paused = false;
@@ -69,14 +70,17 @@ $(document).ready(function () {
         if ($(".sound.active").children().hasClass("fa-water")) beach.play();
     };
 
-    //sets seconds in playCounter() according to minutes box that has been selected
+    //sets seconds in playCounter() according to the minutes button that has been selected
     startCounter = () => {
         if ($(".minute.active").text() === "5 minutes") {
             playCounter(300);
+            initialTiming = $(".minute.active").text();
         } else if ($(".minute.active").text() === "2 minutes") {
             playCounter(120);
+            initialTiming = $(".minute.active").text();
         } else if ($(".minute.active").text() === "10 minutes") {
             playCounter(600);
+            initialTiming = $(".minute.active").text();
         }
     };
 
@@ -86,6 +90,10 @@ $(document).ready(function () {
         let partOfBar = Number((initialBarWidth / val).toFixed(2));
 
         let countDown = setInterval(() => {
+
+            //restarts app if while playing a different time is selected
+            if($(".minute.active").text()!== initialTiming) restart();
+            
             if (!paused) {
                 if (currentBarWidth > 0) {
                     currentBarWidth = Number((currentBarWidth - partOfBar).toFixed(3));
@@ -102,11 +110,11 @@ $(document).ready(function () {
 
     }
 
-    //resets the app counter and play-pause button
+    //resets the app counter, play-pause button, 
     let restart = () => {
         setTimeout(() => {
             $(".fake-width").removeClass("finish");
-            $("img").attr("src", "./svg/play.svg");
+            pauseApp();
             $(".progress").width(initialBarWidth);
         }, 3000)
 
