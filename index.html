@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Meditation App</title>
+</head>
+
+<body>
+
+    <audio id="rain">
+        <source src="./sounds/rain.mp3" type="audio/mp3">
+    </audio>
+    <audio id="beach">
+        <source src="./sounds/beach.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="container">
+
+        <div class="select minutes">
+            <button class="minute">2 minutes</button>
+            <button class="minute active">5 minutes</button>
+            <button class="minute">10 minutes</button>
+        </div>
+
+        <div class="core">
+            <div class="core-el play-pause"><img src="./svg/play.svg"></div>
+            <div class="core-el time">
+                <div class="fake-width"></div>
+                <div class="progress"></div>
+            </div>
+        </div>
+
+        <div class="select">
+            <div>
+                <button class="sound"><i class="fa-solid fa-cloud-rain"></i></button>
+                <button class="sound"><i class="fa-solid fa-water"></i></button>
+                <button class="sound active"><i class="fa-solid fa-volume-xmark"></i></button>
+            </div>
+
+            <div>
+                <button class="bg active"><i class="fa-solid fa-leaf"></i></button>
+                <button class="bg"><i class="fa-solid fa-sun"></i></button>
+                <button class="bg"><i class="fa-solid fa-certificate"></i></button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p class="text">Created by <a href="#">Eulalia Pirone</a> <a href="#"><i class="fa-brands fa-github"></i></a>
+        </p>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
