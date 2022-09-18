@@ -52,6 +52,7 @@ $(document).ready(function () {
 
     });
 
+    //pauses minutes and timer
     pauseApp = () => {
         $("img").attr("src", "./svg/play.svg");
         paused = true;
@@ -59,6 +60,7 @@ $(document).ready(function () {
         beach.pause();
     };
 
+    //plays minutes and timer
     playApp = () => {
         $("img").attr("src", "./svg/pause.svg");
         paused = false;
@@ -67,6 +69,7 @@ $(document).ready(function () {
         if ($(".sound.active").children().hasClass("fa-water")) beach.play();
     };
 
+    //sets seconds in playCounter() according to minutes box that has been selected
     startCounter = () => {
         if ($(".minute.active").text() === "5 minutes") {
             playCounter(300);
@@ -77,6 +80,7 @@ $(document).ready(function () {
         }
     };
 
+    //plays the counter
     playCounter = (val) => {
         let currentBarWidth = $(".progress").width();
         let partOfBar = Number((initialBarWidth / val).toFixed(2));
@@ -98,6 +102,7 @@ $(document).ready(function () {
 
     }
 
+    //resets the app counter and play-pause button
     let restart = () => {
         setTimeout(() => {
             $(".fake-width").removeClass("finish");
