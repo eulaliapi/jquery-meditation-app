@@ -58,6 +58,7 @@ body {
 
 .container {
     background-color: var(--color-box);
+    height: 100vh;
     padding: 0 1rem;
 }
 
@@ -170,7 +171,7 @@ footer {
 
     .container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
     }
 
@@ -181,7 +182,8 @@ footer {
     }
 
     .core {
-        margin: 5rem 0;
+        height: 50vh;
+        margin:auto 0 auto 0;
     }
 
 }    
